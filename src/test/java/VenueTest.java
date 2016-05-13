@@ -22,11 +22,11 @@ public class VenueTest {
     assertEquals("CBGB", myVenue.getTitle());
   }
 
-//   @Test
-//   public void all_emptyAtFirst_0() {
-//     assertEquals(0, Venue.all().size());
-//   }
-//
+  @Test
+  public void all_emptyAtFirst_0() {
+    assertEquals(0, Venue.all().size());
+  }
+
 //   @Test
 //   public void equals_returnsTrueIfNamesAretheSame_true() {
 //     Venue firstVenue = new Venue("CBGB", "123 First St");
