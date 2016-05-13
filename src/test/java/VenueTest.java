@@ -79,15 +79,15 @@ public class VenueTest {
     assertEquals(1, savedBands.size());
   }
 
-//   @Test
-//   public void delete_deletesAllBandsAndVenuesAssociations() {
-//     Venue myVenue = new Venue("CBGB", "123 First St");
-//     myVenue.save();
-//     Band myBand = new Band("Proxy", "Brief description of band");
-//     myBand.save();
-//     myVenue.addBand(myBand);
-//     myVenue.delete();
-//     assertEquals(0, myBand.getVenues().size());
-//   }
-//
+  @Test
+  public void delete_deletesAllBandsAndVenuesAssociations() {
+    Venue myVenue = new Venue("CBGB", "123 First St");
+    myVenue.save();
+    Band myBand = new Band("Proxy", "Brief description of band");
+    myBand.save();
+    myVenue.addBand(myBand);
+    myVenue.delete();
+    assertEquals(0, myBand.getVenues().size());
+  }
+
 }
