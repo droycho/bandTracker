@@ -121,16 +121,16 @@ public class BandTest {
     assertTrue(myVenue.equals(savedVenue));
   }
 
-  // @Test
-  // public void getVenues_returnsAllVenues_List() {
-  //   Venue myVenue = new Venue("CBGB", "123 First St");
-  //   myVenue.save();
-  //   Band myBand = new Band("Proxy", "Brief description of band");
-  //   myBand.save();
-  //   myBand.addVenue(myVenue);
-  //   List savedVenues = myBand.getVenues();
-  //   assertEquals(1, savedVenues.size());
-  // }
+  @Test
+  public void getVenues_returnsAllVenues_List() {
+    Venue myVenue = new Venue("CBGB", "123 First St");
+    myVenue.save();
+    Band myBand = new Band("Proxy", "Brief description of band");
+    myBand.save();
+    myBand.addVenue(myVenue);
+    List savedVenues = myBand.getVenues();
+    assertEquals(1, savedVenues.size());
+  }
 
   // @Test
   // public void delete_deletesAllBandsAndVenuesAssociations() {
