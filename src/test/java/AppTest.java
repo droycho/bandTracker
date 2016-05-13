@@ -58,15 +58,15 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("CBGB");
   }
 
-//   @Test
-//   public void bandShowPageDisplaysTitle() {
-//     Band testBand = new Band("Tacos", "meat", "cook", 5);
-//     testBand.save();
-//     String url = String.format("http://localhost:4567/bands/%d", testBand.getId());
-//     goTo(url);
-//     assertThat(pageSource()).contains("Tacos");
-//   }
-//   //
+  @Test
+  public void bandShowPageDisplaysTitle() {
+    Band testBand = new Band("Proxy", "Brief description of band");
+    testBand.save();
+    String url = String.format("http://localhost:4567/bands/%d", testBand.getId());
+    goTo(url);
+    assertThat(pageSource()).contains("Proxy");
+  }
+  //
 //   @Test
 //   public void bandIsAddedToVenue() {
 //     Venue testVenue = new Venue("Mexican");
@@ -118,7 +118,7 @@ public class AppTest extends FluentTest {
 //     goTo(url);
 //     submit("#delete");
 //     goTo(url);
-//     assertThat(pageSource()).contains("$band.getTitle()");
+//     assertThat(pageSource()).contains("$band.getName()");
 //   }
 //
 }
