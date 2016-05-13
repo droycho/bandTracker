@@ -81,19 +81,20 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Proxy");
   }
 
-//   @Test
-//   public void venueIsAddedToBand() {
-//     Venue testVenue = new Venue("CBGB", "123 First St");
-//     testVenue.save();
-//     Band testBand = new Band("Proxy", "Brief description of band");
-//     testBand.save();
-//     String url = String.format("http://localhost:4567/bands/%d", testBand.getId());
-//     goTo(url);
-//     fillSelect("#venue_id").withText("CBGB", "123 First St");
-//     submit("#addVenue");
-//     assertThat(pageSource()).contains("<li>");
-//     assertThat(pageSource()).contains("CBGB", "123 First St");
-//   }
+  @Test
+  public void venueIsAddedToBand() {
+    Venue testVenue = new Venue("CBGB", "123 First St");
+    testVenue.save();
+    Band testBand = new Band("Proxy", "Brief description of band");
+    testBand.save();
+    String url = String.format("http://localhost:4567/bands/%d", testBand.getId());
+    goTo(url);
+    fillSelect("#venue_id").withText("CBGB");
+    submit("#addVenue");
+    assertThat(pageSource()).contains("<li>");
+    assertThat(pageSource()).contains("CBGB");
+  }
+
 //   @Test
 //   public void bandIsUpdated() {
 //     Band testBand = new Band("Proxy", "Brief description of band");
