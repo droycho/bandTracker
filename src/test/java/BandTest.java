@@ -100,16 +100,16 @@ public class BandTest {
     myBand.update("Odesza", "A new description for this new artist");
     assertEquals("Odesza", Band.find(myBand.getId()).getName());
   }
-  //
-  // @Test
-  // public void delete_deletesBand_true() {
-  //   Band myBand = new Band("Tacos", "meat", "cook", 5);
-  //   myBand.save();
-  //   int myBandId = myBand.getId();
-  //   myBand.delete();
-  //   assertEquals(null, Band.find(myBandId));
-  // }
-  //
+
+  @Test
+  public void delete_deletesBand_true() {
+    Band myBand = new Band("Proxy", "Brief description of band");
+    myBand.save();
+    int myBandId = myBand.getId();
+    myBand.delete();
+    assertEquals(null, Band.find(myBandId));
+  }
+
   // @Test
   // public void addVenue_addsVenueToBand() {
   //   Venue myVenue = new Venue("Mexican");
