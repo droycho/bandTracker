@@ -7,7 +7,7 @@ public class Band {
   private String name;
   private String description;
 
-  public Band(String name, String decription) {
+  public Band(String name, String description) {
     this.name = name;
     this.description = description;
   }
