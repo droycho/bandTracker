@@ -16,13 +16,13 @@ public class BandTest {
     Band myBand = new Band("Proxy", "Brief description of band");
     assertEquals(true, myBand instanceof Band);
   }
-  //
-  // @Test
-  // public void getTitle_bandInstantiatesWithTitle_String() {
-  //   Band myBand = new Band("Tacos", "meat", "cook", 5);
-  //   assertEquals("Tacos", myBand.getTitle());
-  // }
-  //
+
+  @Test
+  public void getName_bandInstantiatesWithName_String() {
+    Band myBand = new Band("Proxy", "Brief description of band");
+    assertEquals("Proxy", myBand.getName());
+  }
+
   // @Test
   // public void all_emptyAtFirst_0() {
   //   assertEquals(0, Band.all().size());
