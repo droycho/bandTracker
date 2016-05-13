@@ -23,11 +23,11 @@ public class BandTest {
     assertEquals("Proxy", myBand.getName());
   }
 
-  // @Test
-  // public void all_emptyAtFirst_0() {
-  //   assertEquals(0, Band.all().size());
-  // }
-  //
+  @Test
+  public void all_emptyAtFirst_0() {
+    assertEquals(0, Band.all().size());
+  }
+
   // @Test
   // public void equals_returnsTrueIfTitlesAretheSame_true() {
   //   Band firstBand = new Band("Tacos", "meat", "cook", 5);
