@@ -50,14 +50,14 @@ public class BandTest {
     assertEquals(myBand.getId(), savedBand.getId());
   }
 
-  // @Test
-  // public void find_findsBandInDatabase_true() {
-  //   Band myBand = new Band("Tacos", "meat", "cook", 5);
-  //   myBand.save();
-  //   Band savedBand = Band.find(myBand.getId());
-  //   assertTrue(myBand.equals(savedBand));
-  // }
-  //
+  @Test
+  public void find_findsBandInDatabase_true() {
+    Band myBand = new Band("Proxy", "Brief description of band");
+    myBand.save();
+    Band savedBand = Band.find(myBand.getId());
+    assertTrue(myBand.equals(savedBand));
+  }
+
   // @Test
   // public void find_findsBandInDatabaseAndIngredient_true() {
   //   Band myBand = new Band("Tacos", "meat and cheese", "cook", 5);
