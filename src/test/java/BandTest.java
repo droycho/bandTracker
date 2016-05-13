@@ -81,6 +81,7 @@ public class BandTest {
   //   assertEquals(2, found.size());
   //   // assertTrue(myBand.equals(savedBand));
   // }
+
   // // @Test
   // // public void find_findsAllBandsInDatabaseAndCompares_true() {
   // //   Band firstBand = new Band("Tacos", "meat and cheese", "cook", 5);
@@ -92,13 +93,13 @@ public class BandTest {
   // //   assertThat(findIngredient.contains("meat");
   // // }
   //
-  // @Test
-  // public void update_updatesBandTitle_true() {
-  //   Band myBand = new Band("Tacos", "meat", "cook", 5);
-  //   myBand.save();
-  //   myBand.update("Burgers", "Beef", "Grill", 4);
-  //   assertEquals("Burgers", Band.find(myBand.getId()).getTitle());
-  // }
+  @Test
+  public void update_updatesBandName_true() {
+    Band myBand = new Band("Proxy", "Brief description of band");
+    myBand.save();
+    myBand.update("Odesza", "A new description for this new artist");
+    assertEquals("Odesza", Band.find(myBand.getId()).getName());
+  }
   //
   // @Test
   // public void delete_deletesBand_true() {

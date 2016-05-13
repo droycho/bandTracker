@@ -83,7 +83,7 @@ public class Band {
     try(Connection con = DB.sql2o.open()) {
       String sql = "UPDATE bands SET name = :name, description = :description WHERE id = :id";
       con.createQuery(sql)
-        .addParameter("title", newName)
+        .addParameter("name", newName)
         .addParameter("description", newDescription)
         .addParameter("id", this.id)
         .executeUpdate();
