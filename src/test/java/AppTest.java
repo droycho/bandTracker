@@ -28,16 +28,17 @@ public class AppTest extends FluentTest {
     goTo("http://localhost:4567/");
     assertThat(pageSource()).contains("Band Tacker");
   }
-//
-//   @Test
-//   public void venueIsCreatedTest() {
-//     goTo("http://localhost:4567/");
-//     click("a", withText("Venues"));
-//     fill("#name").with("Mexican");
-//     submit(".btn");
-//     assertThat(pageSource()).contains("Mexican");
-//   }
-//
+
+  @Test
+  public void venueIsCreatedTest() {
+    goTo("http://localhost:4567/");
+    click("a", withText("Venues"));
+    fill("#title").with("CBGB");
+    fill("#address").with("123 First St");
+    submit(".btn");
+    assertThat(pageSource()).contains("CBGB");
+  }
+
 //   @Test
 //   public void bandIsCreatedTest() {
 //     goTo("http://localhost:4567/");

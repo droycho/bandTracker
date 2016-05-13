@@ -9,20 +9,21 @@ public class App {
     staticFileLocation("/public");
     String layout = "templates/layout.vtl";
 
-    // For rootTest in AppTest
+    // For rootTest in AppTest, targets index.vtl
     get("/", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
       model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    // get("/venues", (request, response) -> {
-    //   HashMap<String, Object> model = new HashMap<String, Object>();
-    //   model.put("venues", Venue.all());
-    //   model.put("template", "templates/venues.vtl");
-    //   return new ModelAndView(model, layout);
-    // }, new VelocityTemplateEngine());
-    //
+    // For venueIsCreatedTest, targets venues.vtl
+    get("/venues", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      model.put("venues", Venue.all());
+      model.put("template", "templates/venues.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
     // get("/bands", (request, response) -> {
     //   HashMap<String, Object> model = new HashMap<String, Object>();
     //   System.out.println(request.queryParams("searchIngredients"));
@@ -38,7 +39,7 @@ public class App {
     //   model.put("template", "templates/bands.vtl");
     //   return new ModelAndView(model, layout);
     // }, new VelocityTemplateEngine());
-    //
+
     // post("/bands", (request, response) -> {
     //   HashMap<String, Object> model = new HashMap<String, Object>();
     //   String title = request.queryParams("title");
@@ -51,17 +52,18 @@ public class App {
     //   response.redirect("/bands");
     //   return null;
     // });
-    //
-    //
-    // post("/venues", (request, response) -> {
-    //   HashMap<String, Object> model = new HashMap<String, Object>();
-    //   String name = request.queryParams("name");
-    //   Venue newVenue = new Venue(name);
-    //   newVenue.save();
-    //   response.redirect("/venues");
-    //   return null;
-    // });
-    //
+
+
+    post("/venues", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      String title = request.queryParams("title");
+      String address = request.queryParams("address");
+      Venue newVenue = new Venue(title, address);
+      newVenue.save();
+      response.redirect("/venues");
+      return null;
+    });
+
     // get("/bands/:id", (request,response) -> {
     //   HashMap<String, Object> model = new HashMap<String, Object>();
     //   Band band = Band.find(Integer.parseInt(request.params("id")));
