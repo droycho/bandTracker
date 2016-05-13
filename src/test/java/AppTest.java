@@ -39,18 +39,16 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("CBGB");
   }
 
-//   @Test
-//   public void bandIsCreatedTest() {
-//     goTo("http://localhost:4567/");
-//     click("a", withText("Bands"));
-//     fill("#title").with("Tacos");
-//     fill("#ingredients").with("Meat");
-//     fill("#instructions").with("Cook");
-//     fill("#rating").with("5");
-//     submit("#addBand");
-//     assertThat(pageSource()).contains("Tacos");
-//   }
-//
+  @Test
+  public void bandIsCreatedTest() {
+    goTo("http://localhost:4567/");
+    click("a", withText("Bands"));
+    fill("#name").with("Proxy");
+    fill("#description").with("Brief description of band");
+    submit("#addBand");
+    assertThat(pageSource()).contains("Proxy");
+  }
+
 //   @Test
 //   public void venueShowPageDisplaysName() {
 //     Venue testVenue = new Venue("Mexican");

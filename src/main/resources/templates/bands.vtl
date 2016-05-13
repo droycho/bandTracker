@@ -2,39 +2,20 @@
 
 <ul>
   #foreach ($band in $bands)
-    <li><a href="/bands/$band.getId()">$band.getTitle()</a></li>
+    <li><a href="/bands/$band.getId()">$band.getName()</a></li>
   #end
 </ul>
 
 <p>Add a new band:</p>
 
 <form action="/bands" method="post">
-  <label for="title">Band title</label>
+  <label for="name">Band name</label>
     <br>
-    <input id="title" name="title" type="text">
+    <input id="name" name="name" type="text">
     <br>
-  <label for="ingredients">Ingredients</label>
+  <label for="description">Description</label>
     <br>
-    <textarea rows="3" cols="50" id="ingredients" name="ingredients" type="text"></textarea>
-    <br>
-  <label for="instructions">Instructions</label>
-    <br>
-    <textarea rows="3" cols="50" id="instructions" name="instructions" type="text"></textarea>
-    <br>
-  <label for="rating">Rating</label>
-    <br>
-
-    <input class="star star-1" id="star-1" type="radio" name="star" value="1"/>
-    <label class="star star-1" for="star-1"></label>
-    <input class="star star-2" id="star-2" type="radio" name="star" value="2"/>
-    <label class="star star-2" for="star-2"></label>
-    <input class="star star-3" id="star-3" type="radio" name="star" value="3"/>
-    <label class="star star-3" for="star-3"></label>
-    <input class="star star-4" id="star-4" type="radio" name="star" value="4"/>
-    <label class="star star-4" for="star-4"></label>
-    <input class="star star-5" id="star-5" type="radio" name="star" value="5"/>
-    <label class="star star-5" for="star-5"></label>
-
+    <textarea rows="3" cols="50" id="description" name="description" type="text"></textarea>
     <br>
   <button type="submit" class="btn btn-success" id="addBand">Add Band</button>
 </form>
@@ -43,22 +24,7 @@
 
 
 <ul>
-  #foreach ($band in $bandRatings)
-    <li><a href="/bands/$band.getId()">$band.getTitle()</a> -$band.getRating()</li>
-  #end
-</ul>
-
-<br>
-<p>Find a band with a certain ingredient</p>
-<br>
-<form action="/bands" method="get">
-  <label for="searchIngredients">Search</label>
-  <input id="searchIngredients" name="searchIngredients" type="text">
-  <button type="submit" id="searchIngredients" class="btn btn-success">Find Ingredients</button>
-</form>
-<br>
-<ul>
-  #foreach ($band in $foundBands)
+  #foreach ($band in $bands)
     <li><a href="/bands/$band.getId()">$band.getTitle()</a></li>
   #end
 </ul>

@@ -24,34 +24,24 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    // get("/bands", (request, response) -> {
-    //   HashMap<String, Object> model = new HashMap<String, Object>();
-    //   System.out.println(request.queryParams("searchIngredients"));
-    //   if (request.queryParams("searchIngredients") != null) {
-    //     String query = request.queryParams("searchIngredients");
-    //     List<Band> foundBands  = Band.searchIngredients("%" + query + "%");
-    //     model.put("foundBands", foundBands);
-    //     System.out.println("hello");
-    //   }
-    //   List<Band> bands = Band.all();
-    //   model.put("bandRatings", Band.allRated());
-    //   model.put("bands", bands);
-    //   model.put("template", "templates/bands.vtl");
-    //   return new ModelAndView(model, layout);
-    // }, new VelocityTemplateEngine());
+    // For bandIsCreatedTest, takes inputted band, saves it to database
+    get("/bands", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      model.put("bands", Band.all());
+      model.put("template", "templates/bands.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
 
-    // post("/bands", (request, response) -> {
-    //   HashMap<String, Object> model = new HashMap<String, Object>();
-    //   String title = request.queryParams("title");
-    //   String ingredients = request.queryParams("ingredients");
-    //   String instructions = request.queryParams("instructions");
-    //   int rating = Integer.parseInt(request.queryParams("star"));
-    //   System.out.println(rating);
-    //   Band newBand = new Band(title, ingredients, instructions, rating);
-    //   newBand.save();
-    //   response.redirect("/bands");
-    //   return null;
-    // });
+    // After user hit submit button on bands.vtl page, it will redirect user to same page with updated band list to include new band
+    post("/bands", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      String name = request.queryParams("name");
+      String description = request.queryParams("description");
+      Band newBand = new Band(name, description);
+      newBand.save();
+      response.redirect("/bands");
+      return null;
+    });
 
 
     post("/venues", (request, response) -> {
