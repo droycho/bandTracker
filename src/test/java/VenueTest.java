@@ -49,13 +49,14 @@ public class VenueTest {
     assertEquals(myVenue.getId(), savedVenue.getId());
   }
 
-//   @Test
-//   public void find_findVenueInDatabase_true() {
-//     Venue myVenue = new Venue("CBGB", "123 First St");
-//     myVenue.save();
-//     Venue savedVenue = Venue.find(myVenue.getId());
-//     assertTrue(myVenue.equals(savedVenue));
-//   }
+  @Test
+  public void find_findVenueInDatabase_true() {
+    Venue myVenue = new Venue("CBGB", "123 First St");
+    myVenue.save();
+    Venue savedVenue = Venue.find(myVenue.getId());
+    assertTrue(myVenue.equals(savedVenue));
+  }
+  
 //   @Test
 //   public void addBand_addsBandToVenue_true() {
 //     Venue myVenue = new Venue("CBGB", "123 First St");
