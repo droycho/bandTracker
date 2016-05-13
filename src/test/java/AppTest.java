@@ -108,16 +108,16 @@ public class AppTest extends FluentTest {
     goTo(url);
     assertThat(pageSource()).contains("Odesza");
   }
-//
-//   @Test
-//   public void bandIsDeleted() {
-//     Band testBand = new Band("Proxy", "Brief description of band");
-//     testBand.save();
-//     String url = String.format("http://localhost:4567/bands/%d", testBand.getId());
-//     goTo(url);
-//     submit("#delete");
-//     goTo(url);
-//     assertThat(pageSource()).contains("$band.getName()");
-//   }
-//
+
+  @Test
+  public void bandIsDeleted() {
+    Band testBand = new Band("Proxy", "Brief description of band");
+    testBand.save();
+    String url = String.format("http://localhost:4567/bands/%d", testBand.getId());
+    goTo(url);
+    submit("#delete");
+    goTo(url);
+    assertThat(pageSource()).contains("$band.getName()");
+  }
+
 }
