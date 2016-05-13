@@ -1,10 +1,10 @@
-<h1>$venue.getName()</h1>
+<h1>$venue.getTitle()</h1>
 
 #if($venue.getBands())
   <p>Here are the bands for this venue:</p>
   <ul>
     #foreach($band in $venue.getBands())
-      <li>$band.getTitle()</li>
+      <li>$band.getName()</li>
     #end
   </ul>
 #end
@@ -16,15 +16,17 @@
   <label for="band_id">Select a band</label>
   <select id='band_id' name='band_id' type='text'>
     #foreach($band in $allBands)
-      <option value="$band.getId()"> $band.getTitle() </option>
+      <option value="$band.getId()"> $band.getName() </option>
     #end
   </select>
   <button type="submit" id="selectBand" class="btn btn-info">Add band to this venue</button>
 </form>
 
 <form action="/venues/$venue.getId()/edit" method="post">
-  <label for="venueName">Venue Name</label>
-  <input id="venueName" name="venueName" type="text">
+  <label for="venueTitle">Venue Name</label>
+  <input id="venueTitle" name="venueTitle" type="text">
+  <label for="venueAddress">Venue Address</label>
+  <input id="venueAddress" name="venueAddress" type="text">
   <button type="submit" class="btn btn-info" id="update-venue">Update Venue</button>
 </form>
 

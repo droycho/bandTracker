@@ -49,15 +49,15 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Proxy");
   }
 
-//   @Test
-//   public void venueShowPageDisplaysName() {
-//     Venue testVenue = new Venue("Mexican");
-//     testVenue.save();
-//     String url = String.format("http://localhost:4567/venues/%d", testVenue.getId());
-//     goTo(url);
-//     assertThat(pageSource()).contains("Mexican");
-//   }
-//
+  @Test
+  public void venueShowPageDisplaysTitle() {
+    Venue testVenue = new Venue("CBGB", "Brief description of band");
+    testVenue.save();
+    String url = String.format("http://localhost:4567/venues/%d", testVenue.getId());
+    goTo(url);
+    assertThat(pageSource()).contains("CBGB");
+  }
+
 //   @Test
 //   public void bandShowPageDisplaysTitle() {
 //     Band testBand = new Band("Tacos", "meat", "cook", 5);
