@@ -95,21 +95,19 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("CBGB");
   }
 
-//   @Test
-//   public void bandIsUpdated() {
-//     Band testBand = new Band("Proxy", "Brief description of band");
-//     testBand.save();
-//     String url = String.format("http://localhost:4567/bands/%d", testBand.getId());
-//     goTo(url);
-//     click("a", withText("Edit this band"));
-//     fill("#title").with("Burgers");
-//     fill("#ingredients").with("Beef");
-//     fill("#instructions").with("Grill");
-//     fill("#rating").with("5");
-//     submit(".btn");
-//     goTo(url);
-//     assertThat(pageSource()).contains("Burgers");
-//   }
+  @Test
+  public void bandIsUpdated() {
+    Band testBand = new Band("Proxy", "Brief description of band");
+    testBand.save();
+    String url = String.format("http://localhost:4567/bands/%d", testBand.getId());
+    goTo(url);
+    click("a", withText("Edit this band"));
+    fill("#name").with("Odesza");
+    fill("#description").with("A new description for this new artist");
+    submit(".btn");
+    goTo(url);
+    assertThat(pageSource()).contains("Odesza");
+  }
 //
 //   @Test
 //   public void bandIsDeleted() {
