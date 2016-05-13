@@ -66,37 +66,37 @@ public class AppTest extends FluentTest {
     goTo(url);
     assertThat(pageSource()).contains("Proxy");
   }
-  //
-//   @Test
-//   public void bandIsAddedToVenue() {
-//     Venue testVenue = new Venue("Mexican");
-//     testVenue.save();
-//     Band testBand = new Band("Tacos", "meat", "cook", 5);
-//     testBand.save();
-//     String url = String.format("http://localhost:4567/venues/%d", testVenue.getId());
-//     goTo(url);
-//     fillSelect("#band_id").withText("Tacos");
-//     submit("#selectBand");
-//     assertThat(pageSource()).contains("<li>");
-//     assertThat(pageSource()).contains("Tacos");
-//   }
-//
+
+  @Test
+  public void bandIsAddedToVenue() {
+    Venue testVenue = new Venue("CBGB", "123 First St");
+    testVenue.save();
+    Band testBand = new Band("Proxy", "Brief description of band");
+    testBand.save();
+    String url = String.format("http://localhost:4567/venues/%d", testVenue.getId());
+    goTo(url);
+    fillSelect("#band_id").withText("Proxy");
+    submit("#selectBand");
+    assertThat(pageSource()).contains("<li>");
+    assertThat(pageSource()).contains("Proxy");
+  }
+
 //   @Test
 //   public void venueIsAddedToBand() {
-//     Venue testVenue = new Venue("Mexican");
+//     Venue testVenue = new Venue("CBGB", "123 First St");
 //     testVenue.save();
-//     Band testBand = new Band("Tacos", "meat", "cook", 5);
+//     Band testBand = new Band("Proxy", "Brief description of band");
 //     testBand.save();
 //     String url = String.format("http://localhost:4567/bands/%d", testBand.getId());
 //     goTo(url);
-//     fillSelect("#venue_id").withText("Mexican");
+//     fillSelect("#venue_id").withText("CBGB", "123 First St");
 //     submit("#addVenue");
 //     assertThat(pageSource()).contains("<li>");
-//     assertThat(pageSource()).contains("Mexican");
+//     assertThat(pageSource()).contains("CBGB", "123 First St");
 //   }
 //   @Test
 //   public void bandIsUpdated() {
-//     Band testBand = new Band("Tacos", "meat", "cook", 5);
+//     Band testBand = new Band("Proxy", "Brief description of band");
 //     testBand.save();
 //     String url = String.format("http://localhost:4567/bands/%d", testBand.getId());
 //     goTo(url);
@@ -112,7 +112,7 @@ public class AppTest extends FluentTest {
 //
 //   @Test
 //   public void bandIsDeleted() {
-//     Band testBand = new Band("Tacos", "meat", "cook", 5);
+//     Band testBand = new Band("Proxy", "Brief description of band");
 //     testBand.save();
 //     String url = String.format("http://localhost:4567/bands/%d", testBand.getId());
 //     goTo(url);
