@@ -28,13 +28,13 @@ public class BandTest {
     assertEquals(0, Band.all().size());
   }
 
-  // @Test
-  // public void equals_returnsTrueIfTitlesAretheSame_true() {
-  //   Band firstBand = new Band("Tacos", "meat", "cook", 5);
-  //   Band secondBand = new Band("Tacos", "meat", "cook", 5);
-  //   assertTrue(firstBand.equals(secondBand));
-  // }
-  //
+  @Test
+  public void equals_returnsTrueIfNamesAretheSame_true() {
+    Band firstBand = new Band("Proxy", "Brief description of band");
+    Band secondBand = new Band("Proxy", "Brief description of band");
+    assertTrue(firstBand.equals(secondBand));
+  }
+
   // @Test
   // public void save_savesObjectIntoDatabase_true() {
   //   Band myBand = new Band("Tacos", "meat", "cook", 5);
