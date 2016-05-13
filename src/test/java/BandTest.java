@@ -110,28 +110,28 @@ public class BandTest {
     assertEquals(null, Band.find(myBandId));
   }
 
-  // @Test
-  // public void addVenue_addsVenueToBand() {
-  //   Venue myVenue = new Venue("Mexican");
-  //   myVenue.save();
-  //   Band myBand = new Band("Tacos", "meat", "cook", 5);
-  //   myBand.save();
-  //   myBand.addVenue(myVenue);
-  //   Venue savedVenue = myBand.getVenues().get(0);
-  //   assertTrue(myVenue.equals(savedVenue));
-  // }
-  //
+  @Test
+  public void addVenue_addsVenueToBand() {
+    Venue myVenue = new Venue("CBGB", "123 First St");
+    myVenue.save();
+    Band myBand = new Band("Proxy", "Brief description of band");
+    myBand.save();
+    myBand.addVenue(myVenue);
+    Venue savedVenue = myBand.getVenues().get(0);
+    assertTrue(myVenue.equals(savedVenue));
+  }
+
   // @Test
   // public void getVenues_returnsAllVenues_List() {
-  //   Venue myVenue = new Venue("Mexican");
+  //   Venue myVenue = new Venue("CBGB", "123 First St");
   //   myVenue.save();
-  //   Band myBand = new Band("Tacos", "meat", "cook", 5);
+  //   Band myBand = new Band("Proxy", "Brief description of band");
   //   myBand.save();
   //   myBand.addVenue(myVenue);
   //   List savedVenues = myBand.getVenues();
   //   assertEquals(1, savedVenues.size());
   // }
-  //
+
   // @Test
   // public void delete_deletesAllBandsAndVenuesAssociations() {
   //   Venue myVenue = new Venue("Mexican");

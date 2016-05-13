@@ -5,17 +5,22 @@ import java.util.ArrayList;
 
 public class Venue {
   private int id;
-  private String name;
+  private String title;
+  private String address;
 
 
 
-  public Venue(String name) {
-    this.name = name;
+  public Venue(String title, String address) {
+    this.title = title;
+    this.address = address;
   }
 
+  public String getTitle() {
+    return title;
+  }
 
-  public String getName() {
-    return name;
+  public String getAddress() {
+    return address;
   }
 
   public int getId() {
@@ -23,7 +28,7 @@ public class Venue {
   }
 
   public static List<Venue> all() {
-    String sql = "SELECT id, name FROM venues";
+    String sql = "SELECT id, title, address FROM venues";
     try(Connection con = DB.sql2o.open()) {
       return con.createQuery(sql).executeAndFetch(Venue.class);
     }
@@ -35,16 +40,18 @@ public class Venue {
       return false;
     } else {
       Venue newVenue = (Venue) otherVenue;
-      return this.getName().equals(newVenue.getName()) &&
+      return this.getTitle().equals(newVenue.getTitle()) &&
+             this.getAddress().equals(newVenue.getAddress()) &&
              this.getId() == newVenue.getId();
     }
   }
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO venues(name) VALUES (:name)";
+      String sql = "INSERT INTO venues (title, address) VALUES (:title, :address)";
       this.id = (int) con.createQuery(sql, true)
-        .addParameter("name", this.name)
+        .addParameter("title", this.title)
+        .addParameter("address", this.address)
         .executeUpdate()
         .getKey();
     }
@@ -91,11 +98,12 @@ public class Venue {
     }
   }
 
-  public void update(String newName) {
+  public void update(String newTitle, String newAddress) {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "UPDATE venues SET name = :newName WHERE id = :id";
+      String sql = "UPDATE venues SET title = :newTitle, address = :newAddress WHERE id = :id";
       con.createQuery(sql)
-        .addParameter("newName", newName)
+        .addParameter("newTitle", newTitle)
+        .addParameter("newAddress", newAddress)
         .addParameter("id", this.id)
         .executeUpdate();
     }

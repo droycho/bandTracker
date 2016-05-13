@@ -109,7 +109,6 @@ public class Band {
         .addParameter("band_id", this.getId())
         .executeAndFetch(Integer.class);
 
-
       List<Venue> venues = new ArrayList<Venue>();
 
       for (Integer venueId : venueIds) {
@@ -119,7 +118,6 @@ public class Band {
           .executeAndFetchFirst(Venue.class);
         venues.add(venue);
       }
-
       return venues;
     }
   }
