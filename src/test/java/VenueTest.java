@@ -15,13 +15,13 @@ public class VenueTest {
     Venue myVenue = new Venue("CBGB", "123 First St");
     assertEquals(true, myVenue instanceof Venue);
   }
-//
-//   @Test
-//   public void getName_venueInstantiatesWithName_String() {
-//     Venue myVenue = new Venue("CBGB", "123 First St");
-//     assertEquals("CBGB", myVenue.getName());
-//   }
-//
+
+  @Test
+  public void getName_venueInstantiatesWithTitle_String() {
+    Venue myVenue = new Venue("CBGB", "123 First St");
+    assertEquals("CBGB", myVenue.getTitle());
+  }
+
 //   @Test
 //   public void all_emptyAtFirst_0() {
 //     assertEquals(0, Venue.all().size());
