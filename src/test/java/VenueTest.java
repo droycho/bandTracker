@@ -34,21 +34,21 @@ public class VenueTest {
     assertTrue(firstVenue.equals(secondVenue));
   }
 
-//   @Test
-//   public void save_savesObjectIntoDatabase_true() {
-//     Venue myVenue = new Venue("CBGB", "123 First St");
-//     myVenue.save();
-//     assertTrue(Venue.all().get(0).equals(myVenue));
-//   }
-//
-//   @Test
-//   public void save_assignsIdToObject_int() {
-//     Venue myVenue = new Venue("CBGB", "123 First St");
-//     myVenue.save();
-//     Venue savedVenue = Venue.all().get(0);
-//     assertEquals(myVenue.getId(), savedVenue.getId());
-//   }
-//
+  @Test
+  public void save_savesObjectIntoDatabase_true() {
+    Venue myVenue = new Venue("CBGB", "123 First St");
+    myVenue.save();
+    assertTrue(Venue.all().get(0).equals(myVenue));
+  }
+
+  @Test
+  public void save_assignsIdToObject_int() {
+    Venue myVenue = new Venue("CBGB", "123 First St");
+    myVenue.save();
+    Venue savedVenue = Venue.all().get(0);
+    assertEquals(myVenue.getId(), savedVenue.getId());
+  }
+
 //   @Test
 //   public void find_findVenueInDatabase_true() {
 //     Venue myVenue = new Venue("CBGB", "123 First St");
