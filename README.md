@@ -6,17 +6,21 @@
 
 ## Description
 
-_This is a basic Java based web application that is designed mainly for demonstration of understanding of advanced SQL database concepts. The main focus of this application is to utilize a "join-table" to link two classes with eachother to allow interaction between data from the database. This application will allow a user to create venue objects that will contain a taitle fo the venue and its address.  2._
+_This is a basic Java based web application that is designed mainly for demonstration of understanding of advanced SQL database concepts. The main focus of this application is to utilize a "join-table" to link two classes with eachother to allow interaction between data from the database. This application will allow a user to create venue objects that will contain a title for the venue and its address. Users can also create band objects that will contain a name and description for the band. The bands and venues are linked through a join table in the database. Users can see what bands have played at a certain venue or what venues a band has played in. _
 
 ## Setup/Installation Requirements
 
 * Clone this repository to your desktop, or desired directory.
+* In the command line, enter: `$ postgres`, or install and run the postgress application here :http://postgresapp.com/.
+* Open another terminal window or tab once postgres is running and run psql with the following: `$ psql`.
+* In psql, create the following database: `CREATE DATABASE band_tracker;`
+* Either quit psql with `\q` or open another terminal window or tab and enter the following: `$ psql band_tracker < band_tracker.sql`.
+* 
 * Open your terminal/command line and navigate to the directory that the clone was saved in(desktop or what ever directory you chose).
 * Once you are in the parent direntory (should be WordPuzzle), enter `$ gradle run`.
 * Once gradle runs from the terminal/command line, open a new tab/window in your desired web browser.
 * Enter the following in address bar: localhost:4567
-* Try it out!
-* You will need to either navigate back to localhost:4567 to play again, or use the back button and refresh.
+
 
 
 ## Support and contact details
