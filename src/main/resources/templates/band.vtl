@@ -1,8 +1,8 @@
 <h1>$band.getName()</h1>
-<h2>Description: $band.getDescription()</h2>
+<h2>$band.getDescription()</h2>
 
 #if($band.getVenues())
-  <p>Here are the venues for this band:</p>
+  <h2>Here are the Venues this band has performed in:</h2>
   <ul>
     #foreach($venue in $band.getVenues())
       <li>$venue.getTitle()</li>
@@ -10,20 +10,20 @@
   </ul>
 #end
 
-<h4>Add a venue to this band:</h4>
+<h4>Add a Venue for this Band:</h4>
 
 <form action='/add_venues' method='post'>
   <input id="band_id" name="band_id" type="hidden" value="$band.getId()">
-  <label for="venue_id">Select a venue</label>
+  <label for="venue_id">Select a Venue</label>
   <select id='venue_id' name='venue_id' type='text'>
     #foreach($venue in $allVenues)
       <option value="$venue.getId()"> $venue.getTitle() </option>
     #end
   </select>
-  <button type="submit" id="addVenue" class="btn btn-info">Add venue to this band</button>
+  <button type="submit" id="addVenue" class="btn btn-info">Add Venue for this Band</button>
 </form>
 <br>
-<p><a href="/bands/$band.getId()/edit">Edit this band</a></p>
+<p><a href="/bands/$band.getId()/edit">Edit Band</a></p>
 
 <form action="/bands/$band.getId()/delete" method="post">
   <button type="submit" class="btn-danger" id="delete">Delete Band</button>

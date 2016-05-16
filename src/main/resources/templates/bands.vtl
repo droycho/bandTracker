@@ -1,4 +1,4 @@
-<h1>All bands</h1>
+<h1>All Bands</h1>
 
 <ul>
   #foreach ($band in $bands)
@@ -6,7 +6,7 @@
   #end
 </ul>
 
-<p>Add a new band:</p>
+<p>Add a new Band:</p>
 
 <form action="/bands" method="post">
   <label for="name">Band name</label>
@@ -21,10 +21,3 @@
 </form>
 
 <a href="/">Home</a>
-
-
-<ul>
-  #foreach ($band in $bands)
-    <li><a href="/bands/$band.getId()">$band.getName()</a></li>
-  #end
-</ul>

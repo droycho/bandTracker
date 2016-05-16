@@ -1,4 +1,5 @@
 <h1>$venue.getTitle()</h1>
+<h1>$venue.getAddress()</h1>
 
 #if($venue.getBands())
   <p>Here are the bands for this venue:</p>
@@ -24,9 +25,13 @@
 
 <form action="/venues/$venue.getId()/edit" method="post">
   <label for="venueTitle">Venue Name</label>
+  <br>
   <input id="venueTitle" name="venueTitle" type="text">
+  <br>
   <label for="venueAddress">Venue Address</label>
+  <br>
   <input id="venueAddress" name="venueAddress" type="text">
+  <br>
   <button type="submit" class="btn btn-info" id="update-venue">Update Venue</button>
 </form>
 

@@ -1,4 +1,4 @@
-<h1>All venues</h1>
+<h1>Select a Venue</h1>
 
 <ul>
   #foreach ($venue in $venues)
@@ -6,16 +6,18 @@
   #end
 </ul>
 
-<p>Add a new venue:</p>
+<h1>Add a new venue:</h1>
 
 <form action="/venues" method="post">
   <label for="title">Venue name</label>
+  <br>
   <input id="title" name="title" type="text">
+  <br>
   <label for="address">Venue address</label>
+  <br>
   <input id="address" name="address" type="text">
+  <br>
   <button type="submit" class="btn btn-success">Add Venue</button>
 </form>
-
-
 
 <p><a href="/">Home</a></p>

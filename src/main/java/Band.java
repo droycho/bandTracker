@@ -31,22 +31,6 @@ public class Band {
     }
   }
 
-  // public static List<Band> allRated() {
-  //   String sql = "SELECT * FROM bands WHERE rating > 0 ORDER BY rating DESC;";
-  //   try(Connection con = DB.sql2o.open()){
-  //     return con.createQuery(sql).executeAndFetch(Band.class);
-  //   }
-  // }
-  //
-  // public static List<Band> searchIngredients(String search) {
-  //   String sql = "SELECT * FROM bands WHERE description LIKE :search";
-  //   try(Connection con = DB.sql2o.open()) {
-  //     return con.createQuery(sql)
-  //       .addParameter("search", search)
-  //       .executeAndFetch(Band.class);
-  //   }
-  // }
-
   @Override
   public boolean equals(Object otherBand){
     if (!(otherBand instanceof Band)) {

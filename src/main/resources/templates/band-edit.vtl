@@ -1,10 +1,14 @@
-<h3>Update band:</h3>
+<h1>Update band:</h1>
 
 <form action="/bands/$band.getId()" method="post">
   <label for="name">New name</label>
+  <br>
   <input id="name" name="name" type="text" value="$band.getName()">
+  <br>
   <label for="description">New description</label>
+  <br>
   <input id="description" name="description" type="text" value="$band.getDescription()">
+  <br>
   <button type="submit" class="btn btn-success">Update</button>
 </form>
 

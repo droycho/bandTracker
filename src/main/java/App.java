@@ -9,14 +9,12 @@ public class App {
     staticFileLocation("/public");
     String layout = "templates/layout.vtl";
 
-    // For rootTest in AppTest, targets index.vtl
     get("/", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
       model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    // For venueIsCreatedTest, targets venues.vtl
     get("/venues", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
       model.put("venues", Venue.all());
@@ -24,7 +22,6 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    // For bandIsCreatedTest, takes inputted band, saves it to database
     get("/bands", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
       model.put("bands", Band.all());
@@ -32,7 +29,6 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    // After user hit submit button on bands.vtl page, it will redirect user to same page with updated band list to include new band
     post("/bands", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
       String name = request.queryParams("name");
@@ -42,7 +38,6 @@ public class App {
       response.redirect("/bands");
       return null;
     });
-
 
     post("/venues", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
@@ -119,13 +114,11 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-
     post("/venues/:id/edit", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
       Venue venue = Venue.find(Integer.parseInt(request.params("id")));
       String venueTitle = request.queryParams("venueTitle");
       String venueAddress = request.queryParams("venueAddress");
-      // Venue venue = Venue.find(venue.getVenueId());
       venue.update(venueTitle, venueAddress);
       String url = String.format("/venues/%d", venue.getId());
       response.redirect(url);
@@ -139,7 +132,6 @@ public class App {
       response.redirect("/venues");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
-
 
     get("/bands/:id/edit", (request,response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
@@ -158,6 +150,5 @@ public class App {
       response.redirect("/bands/" + bandId);
       return null;
     });
-
   }
 }
